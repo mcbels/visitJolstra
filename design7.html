@@ -75,6 +75,20 @@
             box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
         }
 
+        /* Header when scrolled */
+        header.scrolled {
+            top: 0;
+            padding: 1.8rem 3rem 1.2rem 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        header.scrolled:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -93,6 +107,13 @@
             border-radius: 14px;
             border: 2px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled .logo-container img {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(201, 169, 97, 0.3);
         }
 
         .logo-text {
@@ -101,6 +122,13 @@
             color: white;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
             letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled .logo-text {
+            font-size: 1.7rem;
+            color: var(--primary-dark);
+            text-shadow: none;
         }
 
         .nav-links {
@@ -121,6 +149,10 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
+        header.scrolled .nav-links a {
+            color: var(--primary-dark);
+        }
+
         .nav-links a::before {
             content: '';
             position: absolute;
@@ -135,9 +167,18 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
+        header.scrolled .nav-links a:hover::before {
+            background: rgba(201, 169, 97, 0.15);
+        }
+
         .nav-links a:hover {
             transform: translateY(-2px);
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        header.scrolled .nav-links a:hover {
+            color: var(--accent-gold);
+            text-shadow: none;
         }
 
         /* Hero Section */
@@ -265,7 +306,7 @@
         /* Intro Story Section */
         .story-intro {
             padding: 8rem 2rem;
-            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+            background: #ede8e0;
         }
 
         .story-intro-container {
@@ -275,18 +316,18 @@
             grid-template-columns: 1fr 1fr;
             gap: 6rem;
             align-items: center;
-            background: white;
+            background: #ffffff;
             padding: 4rem;
             border-radius: 12px;
-            border: 2px solid #e0e0e0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 2px solid rgba(201, 169, 97, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
 
         .story-text-content {
-            background: #fafafa;
+            background: #f8f6f4;
             padding: 3rem;
             border-radius: 8px;
-            border: 1px solid #e8e8e8;
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
         .story-text-content h2 {
@@ -342,8 +383,8 @@
 
         /* Feature Grid Section */
         .feature-grid-section {
-            padding: 8rem 2rem;
-            background: var(--bg-light);
+            padding: 8rem 2rem 4rem 2rem;
+            background: #ede8e0;
         }
 
         .feature-grid-container {
@@ -353,7 +394,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
 
         .section-label {
@@ -400,13 +441,13 @@
         }
 
         .feature-card {
-            background: white;
+            background: #ffffff;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             border: 3px solid var(--accent-gold);
             border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         .feature-card:hover {
@@ -425,7 +466,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
             transition: transform 0.5s ease;
+        }
+
+        /* Specific positioning for fishing image */
+        .feature-card-image img[src="fiske_jolster-1024x1024.jpg"] {
+            object-position: center 30%;
         }
 
         .feature-card:hover .feature-card-image img {
@@ -434,6 +481,7 @@
 
         .feature-card-content {
             padding: 2.5rem;
+            background: #f8f6f4;
         }
 
         .feature-card-label {
@@ -462,38 +510,32 @@
             position: relative;
             height: 70vh;
             overflow: hidden;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .image-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
-            z-index: 1;
+            border-top: 3px solid rgba(201, 169, 97, 0.4);
+            border-bottom: 3px solid rgba(201, 169, 97, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 -10px 40px rgba(0, 0, 0, 0.15);
         }
 
         .image-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.9);
+            object-position: center 40%;
         }
 
         .banner-overlay-text {
             position: absolute;
             bottom: 4rem;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
+            left: 4rem;
+            text-align: left;
             color: white;
-            max-width: 800px;
-            padding: 0 2rem;
+            max-width: 600px;
+            padding: 2rem 3rem;
             z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .banner-overlay-text h3 {
@@ -503,10 +545,155 @@
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
+        .banner-overlay-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .banner-cta-link {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: var(--accent-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .banner-cta-link:hover {
+            background: white;
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Countdown Badge */
+        .countdown-badge {
+            position: absolute;
+            bottom: 1rem;
+            right: 8rem;
+            background: linear-gradient(135deg, #f9f5ed 0%, #f5eed8 100%);
+            backdrop-filter: blur(15px);
+            padding: 1.3rem 1.5rem;
+            border-radius: 12px;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            min-width: 170px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            transform: scale(0.9);
+        }
+
+        .countdown-badge:hover {
+            transform: scale(0.92) translateY(-4px);
+            box-shadow: 0 16px 50px rgba(201, 169, 97, 0.6);
+            border-color: var(--accent-blue);
+        }
+
+        .countdown-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+            margin-bottom: 0.9rem;
+            padding: 0.8rem 0.5rem;
+            background: linear-gradient(135deg, #f9f5ed 0%, #f5eed8 100%);
+            border-radius: 8px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a4d2e;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown-unit {
+            font-size: 0.55rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .countdown-event-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        .countdown-cta-text {
+            font-size: 0.7rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pagination */
+        .pagination-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .pagination-btn:hover {
+            background: var(--accent-gold);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        .pagination-btn.active {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .member-card[data-page] {
+            display: none;
+        }
+
+        .member-card[data-page].active-page {
+            display: block;
+        }
+
         /* Members Gallery Section */
         .members-section {
-            padding: 8rem 2rem;
-            background: white;
+            padding: 12rem 2rem 8rem 2rem;
+            background: #ede8e0;
         }
 
         .members-container {
@@ -537,6 +724,7 @@
             min-height: 44px;
             font-family: inherit;
             color: inherit;
+            border-radius: 8px;
         }
 
         .filter-btn:hover,
@@ -558,14 +746,14 @@
             height: 350px;
             overflow: hidden;
             cursor: pointer;
-            border: 3px solid #c9a961;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 3px solid var(--accent-gold);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
             transition: all 0.3s ease;
         }
 
         .member-card:hover {
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
             border-color: #4a7c9e;
             transform: translateY(-6px);
         }
@@ -915,7 +1103,7 @@
 
                 <div class="feature-card">
                     <div class="feature-card-image">
-                        <img src="DJI_0469-768x432.jpg" alt="Natur" loading="lazy">
+                        <img src="Fjell_telt.png" alt="Natur" loading="lazy">
                     </div>
                     <div class="feature-card-content">
                         <p class="feature-card-label">Natur</p>
@@ -942,12 +1130,72 @@
         </div>
     </section>
 
-    <!-- Image Banner -->
-    <section class="image-banner">
-        <img src="jolstramuseet--768x432.jpg" alt="Kulturarv i Jølster" loading="lazy">
-        <div class="banner-overlay-text">
-            <h3>Opplev kulturarven vår</h3>
+    <!-- AI Travel Planner CTA (Compact) -->
+    <section style="background: #ede8e0; padding: 0rem 2rem 12rem 2rem; position: relative;">
+        <!-- Gold accent lines for integration -->
+        <div style="width: 100%; margin: 0 auto 1rem auto; height: 3px; background: linear-gradient(to right, transparent 0%, transparent 20%, var(--accent-gold) 35%, var(--accent-gold) 50%, var(--accent-gold) 55%, transparent 90%, transparent 100%); opacity: 0.7;"></div>
+
+        <div style="max-width: 1000px; margin: 0 auto; padding: 3px; background: #FFFFFF; border-radius: 19px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.3), 0 12px 48px rgba(0, 0, 0, 0.3);">
+            <div style="border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 300px; gap: 0; position: relative;">
+                <!-- Gradient Background -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(to right, #4a6b7c 0%, #3d5968 8%, #2d4059 18%, #243447 28%, #1a1a2e 40%, #0d0d1a 55%, #000000 70%, #000000 100%); z-index: 0;"></div>
+
+                <!-- Gold accent corner -->
+                <div style="position: absolute; top: 0; left: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-gold) 0%, transparent 70%); opacity: 0.4; z-index: 2;"></div>
+
+                <!-- Content -->
+                <div style="padding: 3rem 3rem 3rem 6rem; text-align: left; position: relative; z-index: 1;">
+                    <h3 style="font-size: 2.2rem; color: #FFFFFF; margin-bottom: 1rem; font-weight: 300; letter-spacing: 1px; text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 45px rgba(255, 255, 255, 0.3);">Planlegg din perfekte reise</h3>
+                    <p style="font-size: 1.1rem; color: #FFFFFF; line-height: 1.7; margin-bottom: 2rem; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">
+                        Få personlige anbefalingar basert på dine ønsker. Vår AI reiseplanlegger hjelper deg å skape det perfekte oppholdet i Jølster.
+                    </p>
+                    <a href="reiseplanlegger.html" style="display: inline-block; padding: 1.2rem 3rem; background: #000000; color: #FFFFFF; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #FFFFFF; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4); transition: all 0.3s; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);">
+                        Prøv reiseplanleggeren →
+                    </a>
+                </div>
+
+                <!-- AI Image -->
+                <div style="display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; z-index: 1;">
+                    <img src="AI.png" alt="AI Reiseplanlegger" style="width: 100%; height: 100%; object-fit: cover; object-position: center; mix-blend-mode: lighten;">
+                </div>
+            </div>
         </div>
+
+        <!-- Gold accent line bottom -->
+        <div style="width: 100%; margin: 1rem auto 0 auto; height: 3px; background: linear-gradient(to right, transparent 0%, transparent 20%, var(--accent-gold) 35%, var(--accent-gold) 50%, var(--accent-gold) 55%, transparent 90%, transparent 100%); opacity: 0.7;"></div>
+    </section>
+
+    <!-- Image Banner -->
+    <section class="image-banner" style="margin-top: 4rem;">
+        <img src="Bre_middag_her.png" alt="Middag ved breen" loading="lazy">
+        <div class="banner-overlay-text">
+            <h3>Kunne du tenkt deg å spise middag her?</h3>
+            <p>Opplev ein unik kulinarisk reise frå isbre til middagsbord. Under midnattssolen serverer vi gourmetmåltid laga av lokale råvarer.</p>
+            <a href="bre-til-bord.html" class="banner-cta-link">Opplev Bre til bord festival →</a>
+        </div>
+        <a href="bre-til-bord.html" class="countdown-badge">
+            <div class="countdown-label">🎉 Event starter om</div>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <div class="countdown-number">28</div>
+                    <div class="countdown-unit">Dag</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">14</div>
+                    <div class="countdown-unit">Tim</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">22</div>
+                    <div class="countdown-unit">Min</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">18</div>
+                    <div class="countdown-unit">Sek</div>
+                </div>
+            </div>
+            <div class="countdown-event-name">Bre til bord festival</div>
+            <div class="countdown-cta-text">Klikk for detaljar →</div>
+        </a>
     </section>
 
     <!-- Members Section -->
@@ -979,7 +1227,7 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="klatring_jolster-1024x1024.jpg" alt="Mountaingoat Guiding" loading="lazy">
+                    <img src="mountaingoat.jpg" alt="Mountaingoat Guiding" loading="lazy">
                     <div class="member-overlay">
                         <h4>Mountaingoat Guiding</h4>
                         <p>Guidede fjellturar og isbreklatring</p>
@@ -987,7 +1235,7 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="DJI_0469-768x432.jpg" alt="Vestavin" loading="lazy">
+                    <img src="vestavin.jpg" alt="Vestavin" loading="lazy">
                     <div class="member-overlay">
                         <h4>Vestavin</h4>
                         <p>Lokal vin og gårdsproduksjon</p>
@@ -1051,14 +1299,6 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="breidablikk-kj_C3_B8snes-hytter-j_C3_B8lster-4-768x432.jpg" alt="Breidablikk" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Breidablikk Hytter</h4>
-                        <p>Feriehytter med utsikt</p>
-                    </div>
-                </div>
-
-                <div class="member-card">
                     <img src="Bilde-1-UTBLIKK-FERIEHYTTER-utsikt-vann-hytte-vestlandet-kjosnesfjorden-jolster-strand-postkortmotiv-moderne-768x768.jpg" alt="Utblikk" loading="lazy">
                     <div class="member-overlay">
                         <h4>Utblikk Feriehytter</h4>
@@ -1075,47 +1315,7 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="Skei-Servicenter-Bilde-1-768x768.jpg" alt="Skei" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Skei Servicenter</h4>
-                        <p>Lokal service</p>
-                    </div>
-                </div>
-
-                <div class="member-card">
-                    <img src="View-of-valley-from-waterfallDriva-768x512.jpg" alt="Driva" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Driva Gjestegard</h4>
-                        <p>Ved fossefallet</p>
-                    </div>
-                </div>
-
-                <div class="member-card">
-                    <img src="stardalen1.jpg" alt="Stardalen" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Stardalen Hyttegrend</h4>
-                        <p>Hytter i Stardalen</p>
-                    </div>
-                </div>
-
-                <div class="member-card">
-                    <img src="118210317agml-2-768x432.jpg" alt="Outdoor" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Outdoor Jølster</h4>
-                        <p>Friluftsliv</p>
-                    </div>
-                </div>
-
-                <div class="member-card">
-                    <img src="20211017_151403-1-scaled-2-768x768-1.jpg" alt="Astruptunet" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Astruptunet</h4>
-                        <p>Kunstnarhjem og museum</p>
-                    </div>
-                </div>
-
-                <div class="member-card">
-                    <img src="jolvassbuCamping.jpg" alt="Høyseth Camping" loading="lazy">
+                    <img src="View-of-valley-from-waterfallDriva-768x512.jpg" alt="Høyseth Camping" loading="lazy">
                     <div class="member-overlay">
                         <h4>Høyseth Camping</h4>
                         <p>Innfallsporten til Jostedalsbreen</p>
@@ -1170,113 +1370,151 @@
                     </div>
                 </div>
 
-                <div class="member-card">
-                    <img src="smak-jolster-utval-24-768x512.jpg" alt="Smak Jølster" loading="lazy">
-                    <div class="member-overlay">
-                        <h4>Smak Jølster</h4>
-                        <p>Lokale smaker og matopplevingar</p>
+            </div>
+
+            <!-- Pagination -->
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
+                <button class="pagination-btn active" data-page="1">1</button>
+                <button class="pagination-btn" data-page="2">2</button>
+                <button class="pagination-btn" data-page="3">3</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section (Two-part) -->
+    <section style="background: #ede8e0; padding: 8rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <!-- Section Header -->
+            <div class="section-header" style="margin-bottom: 4rem;">
+                <p class="section-label">Arrangement</p>
+                <h2 class="section-title">Opplev Jølster gjennom året</h2>
+                <p class="section-description">
+                    Frå ukentlige opplevingar til store festival – her skjer det alltid noko spennande i Jølster.
+                </p>
+            </div>
+
+            <!-- Two-column layout: Weekly events + Featured event (with shared container) -->
+            <div style="background: #ffffff; border-radius: 20px; padding: 3rem; box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15); border: 3px solid var(--accent-gold);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+
+                    <!-- Weekly/Monthly Events Box -->
+                    <div style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%); border-radius: 12px; padding: 2.5rem; border: 2px solid var(--accent-gold); box-shadow: 0 4px 16px rgba(201, 169, 97, 0.1);">
+                        <h3 style="font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 0.5rem; font-weight: 300;">📅 Ukentlige arrangement</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Noko skjer kvar veke i Jølster</p>
+
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="padding: 1.25rem; margin-bottom: 0.75rem; border-radius: 8px; background: linear-gradient(135deg, #f9f5ed 0%, #ffffff 100%); border: 2px solid var(--accent-gold); box-shadow: 0 2px 8px rgba(201, 169, 97, 0.1); transition: all 0.3s;">
+                                <a href="arrangementer.html#kulturfestival" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <span style="font-size: 1.5rem;">🎨</span>
+                                        <div>
+                                            <strong style="color: var(--primary-dark); display: block;">Jølster Kulturfestival</strong>
+                                            <span style="font-size: 0.85rem; color: var(--text-gray);">Kvar torsdag • Jølstramuseet</span>
+                                        </div>
+                                    </div>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li style="padding: 1.25rem; margin-bottom: 0.75rem; border-radius: 8px; background: linear-gradient(135deg, #f9f5ed 0%, #ffffff 100%); border: 2px solid var(--accent-gold); box-shadow: 0 2px 8px rgba(201, 169, 97, 0.1); transition: all 0.3s;">
+                                <a href="arrangementer.html#fiskekonkurranse" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <span style="font-size: 1.5rem;">🎣</span>
+                                        <div>
+                                            <strong style="color: var(--primary-dark); display: block;">Fiskekonkurranse</strong>
+                                            <span style="font-size: 0.85rem; color: var(--text-gray);">Laurdag • Jølstravatnet</span>
+                                        </div>
+                                    </div>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li style="padding: 1.25rem; margin-bottom: 0.75rem; border-radius: 8px; background: linear-gradient(135deg, #f9f5ed 0%, #ffffff 100%); border: 2px solid var(--accent-gold); box-shadow: 0 2px 8px rgba(201, 169, 97, 0.1); transition: all 0.3s;">
+                                <a href="arrangementer.html#julemarknad" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <span style="font-size: 1.5rem;">🎄</span>
+                                        <div>
+                                            <strong style="color: var(--primary-dark); display: block;">Julemarknad</strong>
+                                            <span style="font-size: 0.85rem; color: var(--text-gray);">Kvar søndag i desember</span>
+                                        </div>
+                                    </div>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li style="padding: 1.25rem; border-radius: 8px; background: linear-gradient(135deg, #f9f5ed 0%, #ffffff 100%); border: 2px solid var(--accent-gold); box-shadow: 0 2px 8px rgba(201, 169, 97, 0.1); transition: all 0.3s;">
+                                <a href="arrangementer.html#livemusikk" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <span style="font-size: 1.5rem;">🎵</span>
+                                        <div>
+                                            <strong style="color: var(--primary-dark); display: block;">Live musikk</strong>
+                                            <span style="font-size: 0.85rem; color: var(--text-gray);">Fredag kvelder • Lokale caféar</span>
+                                        </div>
+                                    </div>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold); flex-shrink: 0;">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <a href="arrangementer.html" style="display: block; text-align: center; padding: 1rem; background: var(--accent-gold); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 16px rgba(201, 169, 97, 0.3);">
+                            Se alle arrangement →
+                        </a>
+                    </div>
+
+                    <!-- Featured Event: Bre til Bord -->
+                    <div style="background: linear-gradient(135deg, #1a4d2e 0%, #2c6e49 100%); border-radius: 16px; padding: 3rem; border: 3px solid var(--accent-gold); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden;">
+                        <!-- Decorative elements -->
+                        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
+                        <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: rgba(201, 169, 97, 0.1); border-radius: 50%;"></div>
+
+                        <span style="background: var(--accent-gold); color: white; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; position: relative; z-index: 1;">🎉 SPESIALEVENT 2025</span>
+
+                        <h3 style="font-size: 2.8rem; color: white; margin-bottom: 1rem; font-weight: 300; letter-spacing: 1px; position: relative; z-index: 1;">Bre til bord festival</h3>
+
+                        <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.95); line-height: 1.8; margin-bottom: 2rem; position: relative; z-index: 1;">
+                            Ein uforglømmeleg heldagsfestival frå isbre til middagsbord. Opplev brevandring på Jostedalsbreen, matlaging med Michelin-kokk og eksklusiv gourmetmiddag under midnattssolen.
+                        </p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; position: relative; z-index: 1;">
+                            <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3);">
+                                <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">📅 Dato</div>
+                                <div style="font-size: 1.1rem; color: white; font-weight: 600;">Laurdag 15. juni 2025</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3);">
+                                <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">⏰ Tid</div>
+                                <div style="font-size: 1.1rem; color: white; font-weight: 600;">Kl 09:00 - 22:00</div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(201, 169, 97, 0.25); border: 2px solid var(--accent-gold); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 2rem; position: relative; z-index: 1; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+                            <p style="color: var(--accent-gold); font-weight: 700; font-size: 1rem; margin: 0; text-align: center;">⏰ BERRE 12 PLASSAR IGJEN!</p>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; position: relative; z-index: 1;">
+                            <a href="bre-til-bord.html" style="flex: 1; padding: 1.2rem 2rem; background: var(--accent-gold); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 1rem; text-align: center; letter-spacing: 1px; box-shadow: 0 6px 24px rgba(201, 169, 97, 0.5); transition: all 0.3s; border: 2px solid var(--accent-gold);">
+                                🎫 Kjøp billett
+                            </a>
+                            <a href="bre-til-bord.html" style="flex: 1; padding: 1.2rem 2rem; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; text-align: center; border: 2px solid rgba(255, 255, 255, 0.6); transition: all 0.3s; backdrop-filter: blur(10px);">
+                                Les meir →
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Event - Bre til Bord Festival -->
-    <section style="background: linear-gradient(135deg, #1a4d2e 0%, #2c6e49 100%); padding: 6rem 2rem; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('DJI_0469-768x432.jpg') center/cover; opacity: 0.15;"></div>
-        <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span style="background: var(--accent-gold); color: white; padding: 0.6rem 1.5rem; border-radius: 25px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem;">🎉 ÅRLEG SOMMAR-EVENT</span>
-                <h2 style="font-size: 4rem; color: white; margin-bottom: 1rem; font-weight: 300; letter-spacing: 2px;">BRE TIL BORD FESTIVAL</h2>
-                <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto 2rem; line-height: 1.8;">Ein heldagsfestival du BERRE kan oppleve i Jølster: Brefandring → Matlaging med lokale råvarer → Gourmetmiddag under midnattssolen</p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 3rem; border: 4px solid var(--accent-gold); box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3); max-width: 900px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Neste arrangement</p>
-                    <p style="font-size: 1.8rem; color: #1a4d2e; font-weight: 700; margin-bottom: 0.5rem;">Laurdag 15. juni 2025</p>
-                    <p style="font-size: 1rem; color: #666;">Kl 09:00 - 22:00</p>
-                </div>
-
-                <!-- Countdown Timer -->
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; padding: 2rem; background: linear-gradient(135deg, #f0f8f5 0%, #e8f4f0 100%); border-radius: 12px; border: 2px solid var(--accent-gold);">
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; font-weight: 700; color: #1a4d2e; line-height: 1;">28</div>
-                        <div style="font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem;">Dagar</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; font-weight: 700; color: #1a4d2e; line-height: 1;">14</div>
-                        <div style="font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem;">Timer</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; font-weight: 700; color: #1a4d2e; line-height: 1;">22</div>
-                        <div style="font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem;">Minutt</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; font-weight: 700; color: #1a4d2e; line-height: 1;">18</div>
-                        <div style="font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem;">Sekund</div>
-                    </div>
-                </div>
-
-                <div style="border-left: 4px solid var(--accent-gold); padding-left: 1.5rem; margin-bottom: 2rem; background: #fafafa; padding: 1.5rem; border-radius: 8px;">
-                    <h4 style="color: #1a4d2e; font-size: 1.1rem; margin-bottom: 0.8rem; font-weight: 600;">🏔️ Program:</h4>
-                    <ul style="color: #333; line-height: 2; margin: 0; padding-left: 1.2rem;">
-                        <li><strong>09:00</strong> - Oppstart ved Mountaingoat Guiding</li>
-                        <li><strong>10:00-14:00</strong> - Guidet brefandring på Jostedalsbreen</li>
-                        <li><strong>15:00-18:00</strong> - Matlaging med Michelin-kokk + Vestavin vinsmak</li>
-                        <li><strong>19:00-22:00</strong> - 5-retters gourmetmiddag under midnattssolen</li>
-                    </ul>
-                </div>
-
-                <div style="background: linear-gradient(135deg, #e8f4f0 0%, #f0f8f5 100%); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 2px solid #d4e8e0;">
-                    <p style="color: #1a4d2e; margin: 0; font-weight: 600; text-align: center;">💎 Begrenset til 40 deltakarar | Pris: 2 495,- per person</p>
-                </div>
-
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="#" style="display: inline-block; padding: 1.3rem 3rem; background: linear-gradient(135deg, #1a4d2e 0%, #2c6e49 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 8px 32px rgba(26, 77, 46, 0.4); transition: all 0.3s; font-size: 1.1rem;">
-                        🎫 Kjøp billett no
-                    </a>
-                    <a href="#" style="display: inline-block; padding: 1.3rem 2.5rem; background: white; color: #1a4d2e; text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid #1a4d2e; transition: all 0.3s;">
-                        Les meir
-                    </a>
-                </div>
-
-                <p style="text-align: center; margin-top: 1.5rem; color: #999; font-size: 0.85rem; font-style: italic;">Berre 12 plassar igjen!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Travel Planner Section -->
-    <section class="story-intro" style="background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);">
-        <div class="story-intro-container" style="border: 3px solid var(--accent-gold);">
-            <div class="story-image-feature">
-                <img src="DJI_0469-768x432.jpg" alt="AI Reiseplanlegger" loading="lazy">
-            </div>
-            <div class="story-text-content" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafb 100%);">
-                <h2 style="color: var(--accent-blue);">🤖 AI Reiseplanlegger</h2>
-                <p><strong>Få personlige anbefalinger basert på dine ønsker</strong></p>
-                <p>Vår intelligente reiseplanlegger hjelper deg å skape det perfekte oppholdet i Jølster. Velg antall personer, lengde på oppholdet, aktivitetsnivå og interesser - så foreslår vi den beste reiseruten for deg.</p>
-
-                <div style="background: white; padding: 2rem; border-radius: 8px; margin-top: 2rem; border: 2px solid var(--accent-gold);">
-                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-gray);"><strong>Eksempel:</strong> Familie med 2 barn, 5 dagar, høg aktivitet</p>
-                    <div style="padding: 1rem; background: #f8f9fa; border-left: 4px solid var(--accent-blue); border-radius: 4px;">
-                        <p style="font-size: 0.95rem; color: #333; margin: 0;">→ Dag 1: Rafting + Fyrig Sauna<br>
-                        → Dag 2: Jostedalsbreen-vandring + Golf<br>
-                        → Dag 3: Båttur + Jølstramuseet<br>
-                        → Dag 4: Fiske + Vestavin vingård<br>
-                        → Dag 5: Astruptunet + avreise</p>
-                    </div>
-                </div>
-
-                <a href="#" style="display: inline-block; margin-top: 2rem; padding: 1.2rem 2.5rem; background: var(--accent-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 6px 24px rgba(74, 124, 158, 0.3);">
-                    Prøv reiseplanleggeren →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Activities Section -->
-    <section class="feature-grid-section" style="background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%); padding: 8rem 2rem;">
+    <!-- Unique Experiences Section (Part 1: 2 cards) -->
+    <section class="feature-grid-section" style="background: #ede8e0; padding: 8rem 2rem 4rem 2rem;">
         <div class="feature-grid-container">
             <div class="section-header">
                 <p class="section-label" style="color: var(--accent-gold);">Det unike ved Jølster</p>
@@ -1286,13 +1524,14 @@
                 </p>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card" style="border: 3px solid var(--accent-blue);">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto;">
+                <!-- Jostedalsbreen -->
+                <div class="feature-card" style="border: 3px solid var(--accent-gold);">
                     <div class="feature-card-image">
-                        <img src="DJI_0469-768x432.jpg" alt="Jostedalsbreen" loading="lazy">
+                        <img src="mountaingoat.jpg" alt="Jostedalsbreen" loading="lazy">
                     </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);">
-                        <p class="feature-card-label" style="color: var(--accent-blue);">⛰️ Brefandring</p>
+                    <div class="feature-card-content" style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);">
+                        <p class="feature-card-label" style="color: var(--accent-gold);">⛰️ Brevandring</p>
                         <h3 class="feature-card-title">Jostedalsbreen - Europas største bre</h3>
                         <p class="feature-card-text">
                             Gå på tusenårs gammal is med erfarne guider. Dette er ikkje berre ein bre - det er Europas største fastlandsbre med spektakulære blåispalar og dype sprekker.
@@ -1300,180 +1539,152 @@
                     </div>
                 </div>
 
+                <!-- Vestavin -->
                 <div class="feature-card" style="border: 3px solid var(--accent-gold);">
                     <div class="feature-card-image">
-                        <img src="jolsterrafting2-768x510.jpg" alt="Rafting" loading="lazy">
+                        <img src="vestavin.jpg" alt="Vestavin" loading="lazy">
                     </div>
                     <div class="feature-card-content" style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);">
-                        <p class="feature-card-label" style="color: var(--accent-gold);">🚣 Rafting i breelva</p>
-                        <h3 class="feature-card-title">Rafting i krystallklart brevatn</h3>
-                        <p class="feature-card-text">
-                            Opplev raftinga i iskald elv som kjem direkte frå breen. Adrenalinrush kombinert med unik natur du berre finn her.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="feature-card" style="border: 3px solid #8b7355;">
-                    <div class="feature-card-image">
-                        <img src="Bilde-1-visit-Jolster-768x432.jpg" alt="Vestavin" loading="lazy">
-                    </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #f9f6f3 0%, #ffffff 100%);">
-                        <p class="feature-card-label" style="color: #8b7355;">🍷 Nordleg vin</p>
+                        <p class="feature-card-label" style="color: var(--accent-gold);">🍷 Nordleg vin</p>
                         <h3 class="feature-card-title">Vindyrking på 61° nord</h3>
                         <p class="feature-card-text">
                             Vestavin er ein av Norges nordlegaste vingårdar. Smak vin dyrka i unikt klima med midnattssol og kalde netter som gir ei spesiell smaksoppleving.
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="feature-card" style="border: 3px solid var(--accent-blue);">
-                    <div class="feature-card-image">
-                        <img src="golf.jpg" alt="Golf" loading="lazy">
-                    </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);">
-                        <p class="feature-card-label" style="color: var(--accent-blue);">⛳ Golf med utsikt</p>
-                        <h3 class="feature-card-title">Golf mellom fjord og isbre</h3>
-                        <p class="feature-card-text">
-                            Sunnfjord Golfklubb tilbyr ein golfoppleving med utsikt over Jølstravatnet og Jostedalsbreen - ein kombinasjon du ikkje finn på andre golffbananer.
-                        </p>
-                    </div>
+    <!-- Unique Experiences Section (Part 2: 1 card centered) -->
+    <section style="background: #ede8e0; padding: 2rem 2rem 8rem 2rem;">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <!-- Golf -->
+            <div class="feature-card" style="border: 3px solid var(--accent-gold);">
+                <div class="feature-card-image">
+                    <img src="golf.jpg" alt="Golf" loading="lazy">
+                </div>
+                <div class="feature-card-content" style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);">
+                    <p class="feature-card-label" style="color: var(--accent-gold);">⛳ Golf med utsikt</p>
+                    <h3 class="feature-card-title">Golf mellom fjord og isbre</h3>
+                    <p class="feature-card-text">
+                        Sunnfjord Golfklubb tilbyr ein golfoppleving med utsikt over Jølstravatnet og Jostedalsbreen - ein kombinasjon du ikkje finn på andre golffbananer.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog/Article Section -->
-    <section class="feature-grid-section" style="background: white;">
-        <div class="feature-grid-container">
-            <div class="section-header">
+    <!-- Combined Blog + Newsletter Section -->
+    <section style="background: #ede8e0; padding: 8rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <!-- Section Header -->
+            <div class="section-header" style="margin-bottom: 4rem;">
                 <p class="section-label">Frå bloggen</p>
-                <h2 class="section-title">Siste nytt frå Jølster</h2>
+                <h2 class="section-title">Siste nytt & tilbod</h2>
                 <p class="section-description">
-                    Kvar veke deler vi historier, tips og oppdateringar frå lokale bedrifter og opplevingar i Jølster
+                    Hold deg oppdatert med nyheter, tips og eksklusive tilbud frå Jølster
                 </p>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card" style="border: 3px solid var(--accent-gold); box-shadow: 0 8px 32px rgba(201, 169, 97, 0.15);">
-                    <div class="feature-card-image">
-                        <img src="Sofabat2-768x432.jpg" alt="Ukens bedrift" loading="lazy">
+            <!-- Two-column layout: Blog post + Newsletter (with shared container) -->
+            <div style="background: #ffffff; border-radius: 20px; padding: 3rem; box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15); border: 3px solid var(--accent-gold);">
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start;">
+
+                    <!-- Latest Blog Post -->
+                    <div class="feature-card" style="border: 2px solid var(--accent-gold); box-shadow: 0 4px 16px rgba(201, 169, 97, 0.1);">
+                        <div class="feature-card-image">
+                            <img src="Sofabat2-768x432.jpg" alt="Ukens bedrift" loading="lazy">
+                        </div>
+                        <div class="feature-card-content" style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);">
+                            <p class="feature-card-label" style="background: var(--accent-gold); color: white; padding: 0.5rem 1rem; display: inline-block; border-radius: 20px; font-weight: 600;">⭐ UKENS BEDRIFT</p>
+                            <h3 class="feature-card-title">Jølster Boat Tours - Spesialtilbod!</h3>
+                            <p class="feature-card-text">
+                                Denne veka får du 25% rabatt på 2-timars fjordtur! Opplev Jølster frå sjøsida med erfarne guider. <strong>Gjelder til søndag.</strong>
+                            </p>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); font-style: italic;">Publisert av Jølster Boat Tours - 12. januar 2025</p>
+                        </div>
                     </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);">
-                        <p class="feature-card-label" style="background: var(--accent-gold); color: white; padding: 0.5rem 1rem; display: inline-block; border-radius: 20px; font-weight: 600;">⭐ UKENS BEDRIFT</p>
-                        <h3 class="feature-card-title">Jølster Boat Tours - Spesialtilbud!</h3>
-                        <p class="feature-card-text">
-                            Denne veka får du 25% rabatt på 2-timars fjordtur! Opplev Jølster frå sjøsida med erfarne guider. <strong>Gjelder til søndag.</strong>
-                        </p>
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); font-style: italic;">Publisert av Jølster Boat Tours - 12. januar 2025</p>
+
+                    <!-- Newsletter Signup -->
+                    <div style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%); border-radius: 12px; padding: 3rem 3rem 3.3rem 3rem; border: 2px solid var(--accent-gold); box-shadow: 0 4px 16px rgba(201, 169, 97, 0.1);">
+                        <h3 style="font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 300;">📧 Meld deg på nyhetsbrev</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Få eksklusive tilbod og siste nytt direkte i innboksen. Vær først ute med å oppdage skjulte perler og sesongbaserte opplevingar i Jølster.</p>
+
+                        <!-- Benefits list -->
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; color: var(--primary-dark);">
+                                ✓ <strong>Ukentlige spesialtilbod</strong> - Spar opptil 30%
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; color: var(--primary-dark);">
+                                ✓ <strong>Arrangement & aktivitetar</strong> - Få beskjed først
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; color: var(--primary-dark);">
+                                ✓ <strong>Bloggartiklar & tips</strong> - Innsidekunnskap
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; color: var(--primary-dark);">
+                                ✓ <strong>Eksklusiv medlemsrabattar</strong> - VIP-tilbod
+                            </li>
+                            <li style="padding: 0.75rem 0; color: var(--primary-dark);">
+                                ✓ <strong>Sesongguider</strong> - Planlegg perfekt
+                            </li>
+                        </ul>
+
+                        <div style="background: rgba(201, 169, 97, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <p style="font-size: 0.85rem; color: var(--primary-dark); font-style: italic; margin: 0;">
+                                "Takk til nyhetsbrevet fekk vi vita om Bre til bord før det var utsolgt!" - Kari
+                            </p>
+                        </div>
+
+                        <a href="nyhetsbrev.html" style="display: block; text-align: center; padding: 1.2rem; background: var(--accent-gold); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 16px rgba(201, 169, 97, 0.3);">
+                            Registrer deg no →
+                        </a>
                     </div>
                 </div>
 
-                <div class="feature-card" style="border: 3px solid var(--accent-blue); box-shadow: 0 8px 32px rgba(74, 124, 158, 0.15);">
-                    <div class="feature-card-image">
-                        <img src="fiske_jolster-1024x1024.jpg" alt="Blogg artikkel" loading="lazy">
-                    </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);">
-                        <p class="feature-card-label">📝 BLOGG</p>
-                        <h3 class="feature-card-title">5 tips for vellykka aure-fiske på Jølstravatnet</h3>
-                        <p class="feature-card-text">
-                            Lokale fiskeekspertar deler sine beste tips for å fange den store auren. Les meir om beste tider, utstyr og teknikkar som verkar her.
-                        </p>
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); font-style: italic;">Publisert av Visit Jølster - 8. januar 2025</p>
-                    </div>
-                </div>
-
-                <div class="feature-card" style="border: 3px solid #8b7355; box-shadow: 0 8px 32px rgba(139, 115, 85, 0.15);">
-                    <div class="feature-card-image">
-                        <img src="smak-jolster-utval-24-768x512.jpg" alt="Gastronomi" loading="lazy">
-                    </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #f9f6f3 0%, #ffffff 100%);">
-                        <p class="feature-card-label" style="color: #8b7355;">🍽️ GASTRONOMI</p>
-                        <h3 class="feature-card-title">Smakane av Jølster: Ein kulinarisk reise</h3>
-                        <p class="feature-card-text">
-                            Møt lokale matprodusentar som held tradisjonen levande. Frå ost og kjøt til vin og frukt - alt produsert med kjærleik til bygda vår.
-                        </p>
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); font-style: italic;">Publisert av Smak Jølster - 5. januar 2025</p>
-                    </div>
-                </div>
-
-                <div class="feature-card" style="border: 3px solid var(--accent-blue); box-shadow: 0 8px 32px rgba(74, 124, 158, 0.15);">
-                    <div class="feature-card-image">
-                        <img src="jolsterrafting2-768x510.jpg" alt="Vintereventyr" loading="lazy">
-                    </div>
-                    <div class="feature-card-content" style="background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);">
-                        <p class="feature-card-label">❄️ VINTER</p>
-                        <h3 class="feature-card-title">Vintereventyr på Jølster</h3>
-                        <p class="feature-card-text">
-                            Vinteren er magisk i Jølster. Les om dei beste turområda, skikøyring og isfiske når snøen dekkjer fjella våre.
-                        </p>
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); font-style: italic;">Publisert av Jølster Skisenter - 3. januar 2025</p>
-                    </div>
+                <!-- Link to all blog posts -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="blogg.html" style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%); color: var(--primary-dark); text-decoration: none; border-radius: 8px; border: 2px solid var(--accent-gold); font-weight: 600; transition: all 0.3s;">
+                        Les alle blogginnlegg →
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Members-Only Deals Section -->
-    <section class="story-intro" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
-        <div class="story-intro-container" style="border: 3px solid var(--accent-gold); box-shadow: 0 16px 64px rgba(201, 169, 97, 0.3);">
-            <div class="story-text-content" style="background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(74, 124, 158, 0.15) 100%); backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.2);">
-                <h2 style="color: var(--accent-gold);">🎁 Eksklusiv medlemsfordel</h2>
-                <p style="color: white;"><strong>Få tilgang til spesialtilbod som berre er tilgjengeleg for nyhetsbrev-abonnentar</strong></p>
-                <p style="color: rgba(255, 255, 255, 0.9);">Registrer deg for vårt nyhetsbrev og få umiddelbar tilgang til ein samla oversikt over eksklusive tilbud frå alle medlemsbedriftene våre. Rabattar, pakkeprisar og sessongtilbod du ikkje finn andre stader!</p>
-
-                <div style="background: rgba(255, 255, 255, 0.95); padding: 2rem; border-radius: 8px; margin-top: 2rem; border: 2px solid var(--accent-gold);">
-                    <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Eksempel på medlemstilbud:</h4>
-                    <ul style="color: #333; line-height: 2; list-style: none; padding: 0;">
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ <strong>20% rabatt</strong> på alle hytter hos Breidablikk Hytter</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ <strong>Gratis kakeoslunsj</strong> ved besøk på Astruptunet</li>
-                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ <strong>2-for-1 på rafting</strong> hos Jølster Rafting (gyldige mandagar)</li>
-                        <li style="padding: 0.5rem 0;">✓ <strong>Gratis smaksprøve</strong> ved vinomvisning på Vestavin</li>
-                    </ul>
-                </div>
-
-                <a href="#" style="display: inline-block; margin-top: 2rem; padding: 1.2rem 3rem; background: var(--accent-gold); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 8px 24px rgba(201, 169, 97, 0.4); transition: all 0.3s;">
-                    Registrer deg no →
-                </a>
-            </div>
-            <div class="story-image-feature" style="border: 3px solid var(--accent-gold);">
-                <img src="smak-jolster-utval-24-768x512.jpg" alt="Medlemsfordeler" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- Membership CTA Section -->
+    <!-- Membership CTA Section (New with gold styling) -->
     <section class="membership-cta-section" style="background-image: url('geiter_jolster_m-1024x1024.jpg');">
         <div class="membership-cta-container">
             <h2>Bli medlem av Visit Jølster</h2>
             <p>Bli ein del av nettverket som fremmar turisme og lokal utvikling i Jølster</p>
 
             <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-number">01</div>
-                    <h4 class="benefit-title">Felles markedsføring</h4>
+                <div class="benefit-item" style="border: 3px solid var(--accent-gold);">
+                    <div class="benefit-number" style="color: var(--accent-gold);">01</div>
+                    <h4 class="benefit-title" style="color: var(--accent-gold);">Felles markedsføring</h4>
                     <p class="benefit-text">
                         Din bedrift blir synliggjort gjennom Visit Jølsters markedsføringsaktiviteter og kan dra nytte av auka eksponering.
                     </p>
                 </div>
 
-                <div class="benefit-item">
-                    <div class="benefit-number">02</div>
-                    <h4 class="benefit-title">Nettverk</h4>
+                <div class="benefit-item" style="border: 3px solid var(--accent-gold);">
+                    <div class="benefit-number" style="color: var(--accent-gold);">02</div>
+                    <h4 class="benefit-title" style="color: var(--accent-gold);">Nettverk</h4>
                     <p class="benefit-text">
                         Få tilgang til eit nettverk av lokale bedrifter og organisasjonar engasjert i turisme og lokal utvikling.
                     </p>
                 </div>
 
-                <div class="benefit-item">
-                    <div class="benefit-number">03</div>
-                    <h4 class="benefit-title">Fellesarrangement</h4>
+                <div class="benefit-item" style="border: 3px solid var(--accent-gold);">
+                    <div class="benefit-number" style="color: var(--accent-gold);">03</div>
+                    <h4 class="benefit-title" style="color: var(--accent-gold);">Fellesarrangement</h4>
                     <p class="benefit-text">
                         Delta i workshops, arrangement og aktivitetar organisert av Visit Jølster for medlemmane våre.
                     </p>
                 </div>
             </div>
 
-            <a href="#" class="cta-button">Bli medlem no</a>
+            <a href="#" class="cta-button" style="background: var(--accent-gold); border: 3px solid var(--accent-gold);">Bli medlem no</a>
         </div>
     </section>
 
@@ -1548,6 +1759,44 @@
                     });
                 }
             });
+        });
+
+        // Members pagination
+        document.addEventListener('DOMContentLoaded', () => {
+            const memberCards = document.querySelectorAll('.member-card');
+            const membersPerPage = 9;
+
+            // Assign data-page to each member card
+            memberCards.forEach((card, index) => {
+                const page = Math.floor(index / membersPerPage) + 1;
+                card.setAttribute('data-page', page);
+            });
+
+            // Show first page initially
+            showPage(1);
+
+            // Pagination button click handler
+            document.querySelectorAll('.pagination-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const page = parseInt(btn.getAttribute('data-page'));
+                    showPage(page);
+
+                    // Update active button
+                    document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            function showPage(pageNumber) {
+                memberCards.forEach(card => {
+                    const cardPage = parseInt(card.getAttribute('data-page'));
+                    if (cardPage === pageNumber) {
+                        card.classList.add('active-page');
+                    } else {
+                        card.classList.remove('active-page');
+                    }
+                });
+            }
         });
     </script>
 </body>
