@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Jølster - Bold & Dynamisk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #f5f7fa;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-wrapper img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a5a4a;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a5a4a;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1a5a4a;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.75);
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .hero-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(26, 90, 74, 0.15) 0%, transparent 100%);
+        }
+
+        .shape {
+            display: none;
+        }
+
+        .shape1 {
+            display: none;
+        }
+
+        .shape2 {
+            display: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            width: 100%;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-subtitle" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6); {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 3rem;
+            background: rgba(26, 90, 74, 0.95);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-cta:hover::before {
+            left: 100%;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 90, 74, 0.4);
+            background: rgba(26, 90, 74, 1);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #f8f9fa;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            display: none;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: #2c3e50;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a5a4a;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #6c757d;
+            letter-spacing: 0.3px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 8rem 3rem;
+            background: white;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            position: relative;
+            border-left: 5px solid #d4af37;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), transparent);
+            clip-path: polygon(100% 0, 100% 100%, 0 0);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #1a5a4a;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border: 5px solid #2c5f4f;
+            box-shadow: 20px 20px 0 rgba(212, 175, 55, 0.3);
+        }
+
+        /* Activities Masonry */
+        .activities-section {
+            background: white;
+            padding: 8rem 0;
+        }
+
+        .activities-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem 4rem;
+            text-align: center;
+        }
+
+        .activities-header h2 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.9rem 1.8rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            color: #6c757d;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            min-width: 44px;
+            min-height: 44px;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #1a5a4a;
+            color: white;
+            border-color: #1a5a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 90, 74, 0.2);
+        }
+
+        .activities-masonry {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .masonry-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+            border-radius: 12px;
+            border: 2px solid #e8eaed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+
+        .masonry-item:nth-child(1) { grid-row: span 2; }
+        .masonry-item:nth-child(4) { grid-row: span 2; }
+
+        .masonry-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            border-color: #3b82f6;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .masonry-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+            padding: 1.5rem;
+            transform: translateY(60%);
+            transition: transform 0.4s;
+        }
+
+        .masonry-item:hover .masonry-overlay {
+            transform: translateY(0);
+        }
+
+        .masonry-overlay h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .masonry-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        /* Membership CTA */
+        .membership-cta {
+            background: #f8f9fa;
+            padding: 8rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('geiter_jolster_m-1024x1024.jpg');
+            background-size: cover;
+            opacity: 0.05;
+        }
+
+        .membership-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .membership-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #1a5a4a;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-item:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateX(8px);
+        }
+
+        .benefit-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a5a4a;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-text {
+            color: #6c757d;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .membership-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #1a5a4a;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(26, 90, 74, 0.2);
+        }
+
+        .membership-btn:hover {
+            background: #145040;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 90, 74, 0.3);
+        }
+
+        /* Social Footer */
+        .social-footer {
+            background: #1a1a1a;
+            padding: 5rem 3rem;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .social-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem 3rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-btn:hover {
+            background: #1a5a4a;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(26, 90, 74, 0.2);
+        }
+
+        .social-icon {
+            font-size: 2.5rem;
+            color: inherit;
+        }
+
+        /* Skip Link & Focus Indicators */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2c5f4f;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+        .skip-link:focus { top: 0; }
+        *:focus-visible {
+            outline: 3px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 4rem; }
+            .grid-layout { grid-template-columns: 1fr; }
+            .activities-masonry { grid-template-columns: repeat(2, 1fr); }
+            .membership-content { grid-template-columns: 1fr; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .activities-masonry { grid-template-columns: 1fr; }
+            .social-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Hopp til hovedinnhold</a>
+    <!-- Header -->
+    <header>
+        <nav aria-label="Hovednavigasjon">
+            <div class="logo-wrapper">
+                <img src="cropped-visitjolster_logo_rund_endelig_liten.png" alt="Visit Jølster Logo" loading="eager">
+                <span class="logo-text">Jølster</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hjem">Hjem</a></li>
+                <li><a href="#opplev">Opplev</a></li>
+                <li><a href="#medlemane">Medlemane</a></li>
+                <li><a href="#om-oss">Om oss</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <img src="Fjell_utsikt.png" alt="Jølster" loading="lazy" class="hero-image">
+        <div class="hero-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+        </div>
+        <div class="hero-content">
+            <h1>VELKOMMEN<br>TIL JØLSTER</h1>
+            <p class="hero-subtitle" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6);">Der natur møter eventyr. Opplev det ekte Norge.</p>
+            <a href="#" class="hero-cta">
+                <span>UTFORSK AKTIVITETER</span>
+                <span>→</span>
+            </a>
+        </div>
+        <div style="position: absolute; bottom: 2rem; right: 2rem; display: flex; gap: 1rem; z-index: 10;">
+            <a href="https://www.instagram.com/visitjolster.no/" target="_blank" style="display: flex; width: 48px; height: 48px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                <img src="Ikoner/instagram.svg" alt="Instagram" loading="lazy" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://www.facebook.com/visitjolsterno" target="_blank" style="display: flex; width: 48px; height: 48px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                <img src="Ikoner/facebook.svg" alt="Facebook" loading="lazy" style="width: 24px; height: 24px;">
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Fjelltopper</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Breer</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Aktiviteter</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">365</div>
+                <div class="stat-label">Dager eventyr</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Grid -->
+    <section class="content-grid">
+        <div class="grid-layout">
+            <div class="content-card">
+                <h2 class="section-title">Visit Jølster</h2>
+                <p class="content-text">
+                    <strong>Breen låg over Bygda i tusen år. Fossar, elver og bekker rann frå isen mot vatnet....Mot Jølster</strong>
+                </p>
+                <p class="content-text">
+                    I dronane under iskanten spegler Jølster seg som ei dronning, vakrast i landet. Auren blenkjer under vassflåta, rabarbraen lyser i vårhagane.
+                </p>
+                <p class="content-text">
+                    Frå Jostedalsbreen til Jølstravatnet finn vassdropane sine vegar i landskapet, slik du vil finne din.
+                </p>
+                <h3 class="section-title" style="font-size: 2rem; margin-top: 3rem;">Fiske</h3>
+                <p class="content-text">
+                    Brått opnar vasskorpa seg. I eit kort sekund ser du auren danse i sollyset. Fisken glitrar i gull og sølv før den forsvinn i djupet. Ringane i vatnet breier seg mot fjellidene før spegelen ligg like blank og blå.
+                </p>
+                <h3 class="section-title" style="font-size: 2rem; margin-top: 3rem;">Kultur og mat</h3>
+                <p class="content-text">
+                    Jølster er også kjent for sin rike kulturarv og lokale mattradisjoner. Opplev autentiske smaker og møt lokale matprodusenter som dyrker og lager mat med omsorg og stolthet.
+                </p>
+            </div>
+            <img src="klatring_jolster-1024x1024.jpg" alt="Jølster natur" loading="lazy" class="feature-image">
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities-section">
+        <div class="activities-header">
+            <h2>MEDLEMANE</h2>
+            <div class="filter-container" role="group" aria-label="Filtrer medlemmar">
+                <button class="filter-btn active" role="tab" aria-selected="true">ALLE</button>
+                <button class="filter-btn" role="tab" aria-selected="false">OVERNATTING</button>
+                <button class="filter-btn" role="tab" aria-selected="false">MAT & DRIKKE</button>
+                <button class="filter-btn" role="tab" aria-selected="false">KULTUR</button>
+                <button class="filter-btn" role="tab" aria-selected="false">AKTIVITETER</button>
+            </div>
+        </div>
+        <div class="activities-masonry">
+            <div class="masonry-item">
+                <img src="Sofabat2-768x432.jpg" alt="Jølster Boat Tours" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølster Boat Tours</h3>
+                    <p>Opplev Jølster frå båt</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="klatring_jolster-1024x1024.jpg" alt="Mountaingoat Guiding" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Mountaingoat Guiding</h3>
+                    <p>Isbre og fjellvandring</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="DJI_0469-768x432.jpg" alt="Vestavin" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Vestavin</h3>
+                    <p>Vingarden på Jølster</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="Bilde1-fossefall-ved-Lunde-Turiststasjon-768x768.jpg" alt="Lunde Turiststasjon" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Lunde Turiststasjon</h3>
+                    <p>Overnatting ved fossefallet</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jolstramuseet--768x432.jpg" alt="Jølstramuseet" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølstramuseet</h3>
+                    <p>Lokal kultur og historie</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="thon-hotel-jolster-fasade-768x384.jpg" alt="Thon Hotel Jølster" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Thon Hotel Jølster</h3>
+                    <p>Moderne overnatting</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jolsterrafting2-768x510.jpg" alt="Jølster Rafting" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølster Rafting</h3>
+                    <p>Rafting og padling</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="fyrigsauna4-768x768.jpg" alt="Fyrig Sauna" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Fyrig Sauna</h3>
+                    <p>Flytande sauna på fjorden</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="Fjordamattunet-Bilde-1-1-768x488.jpg" alt="Fjordamattunet" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Fjordamattunet</h3>
+                    <p>Lokalprodusert mat</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jolstraholmen-0948-768x768.jpg" alt="Jølstraholmen" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølstraholmen</h3>
+                    <p>Camping og overnatting</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="breidablikk-kj_C3_B8snes-hytter-j_C3_B8lster-4-768x432.jpg" alt="Breidablikk" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Breidablikk Hytter</h3>
+                    <p>Feriehytter med utsikt</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="Bilde-1-UTBLIKK-FERIEHYTTER-utsikt-vann-hytte-vestlandet-kjosnesfjorden-jolster-strand-postkortmotiv-moderne-768x768.jpg" alt="Utblikk" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Utblikk Feriehytter</h3>
+                    <p>Moderne hytter ved fjorden</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="Ovrebo-Hytter-drone-med-tekst-768x511.jpg" alt="Øvrebo" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Øvrebo Hytter</h3>
+                    <p>Feriehytter i naturen</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="Skei-Servicenter-Bilde-1-768x768.jpg" alt="Skei" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Skei Servicenter</h3>
+                    <p>Lokal service og handel</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="View-of-valley-from-waterfallDriva-768x512.jpg" alt="Driva" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Driva Gjestegard</h3>
+                    <p>Overnatting ved fossefallet</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="stardalen1.jpg" alt="Stardalen" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Stardalen Hyttegrend</h3>
+                    <p>Hytter i Stardalen</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="118210317agml-2-768x432.jpg" alt="Aktivitet" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Outdoor Jølster</h3>
+                    <p>Friluftsliv og aktiviteter</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="20211017_151403-1-scaled-2-768x768-1.jpg" alt="Kultur" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Astruptunet</h3>
+                    <p>Kulturhistorie og kunst</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jolvassbuCamping.jpg" alt="Camping" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Høyseth Camping</h3>
+                    <p>Innfallsporten til Jostedalsbreen</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="stardalenBygdetun.jpg" alt="Bygdetun" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Stardalen Bygdetun</h3>
+                    <p>Sommarkafe og samlingsstad</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="golf.jpg" alt="Golf" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Sunnfjord Golfklubb</h3>
+                    <p>Golf mellom fjord og fjell</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jølsterSkisenter.jpg" alt="Skisenter" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølster Skisenter</h3>
+                    <p>Opplevingar for heile familien</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jølsterPanorama.jpg" alt="Panorama" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølster Panorama</h3>
+                    <p>Campingglede i vasskanten</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="KjøsnesFeriehytter.jpg" alt="Kjøsnes" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Kjøsnes Feriehytter</h3>
+                    <p>Feriehytte med base for opplevingar</p>
+                </div>
+            </div>
+            <div class="masonry-item">
+                <img src="jølsterliaHyttetun.jpg" alt="Jølsterlia" loading="lazy">
+                <div class="masonry-overlay">
+                    <h3>Jølsterlia Hyttetun</h3>
+                    <p>Hytteferie i flott natur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership CTA -->
+    <section class="membership-cta">
+        <div class="membership-content">
+            <div>
+                <h2 class="membership-title">Bli Medlem Av Visit Jølster</h2>
+                <a href="#" class="membership-btn">Bli medlem no</a>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-number">01</div>
+                    <div class="benefit-title">FELLES MARKEDSFØRING AV REGIONEN</div>
+                    <p class="benefit-text">
+                        Som medlem blir din bedrift eller virksomhet synliggjort gjennom Visit Jølsters markedsføringsaktiviteter og kan dra nytte av økt eksponering blant potensielle besøkende og turister.
+                    </p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">02</div>
+                    <div class="benefit-title">NETTVERK</div>
+                    <p class="benefit-text">
+                        Gjennom Visit Jølster får du tilgang til et nettverk av lokale bedrifter, organisasjoner og enkeltpersoner som er engasjert i turisme. Dette igjen åpner døra for samarbeidsmuligheter og kunnskapsutveksling.
+                    </p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">03</div>
+                    <div class="benefit-title">DELTA I FELLESARRANGEMENTER OG AKTIVITETER</div>
+                    <p class="benefit-text">
+                        Som medlem har du muligheten til å delta i fellesarrangementer, workshops og aktiviteter som er organisert av Visit Jølster.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Footer -->
+    <footer class="social-footer">
+        <h3 class="social-title">Følg oss gjerne på sosiale nettverk</h3>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/visitjolster.no/" class="social-btn" target="_blank">
+                <img src="Ikoner/instagram.svg" alt="Instagram" loading="lazy" style="width: 50px; height: 50px;">
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/visitjolsterno" class="social-btn" target="_blank">
+                <img src="Ikoner/facebook.svg" alt="Facebook" loading="lazy" style="width: 50px; height: 50px;">
+                <span>Facebook</span>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2025 Visit Jølster</p>
+    </footer>
+</body>
+</html>

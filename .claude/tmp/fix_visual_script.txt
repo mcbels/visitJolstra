@@ -1,0 +1,17 @@
+Visual fixes applied to designs:
+
+DESIGN 1 (design1.html) - COMPLETED:
+- .intro: Added white bg, 4rem padding, 2px border, shadow
+- .intro-text: Added #fafafa bg, padding, border
+- .intro-image: Added 2px gold border, shadow
+- .activity-card: Changed to 3px gold border, stronger shadows
+
+DESIGN 7 (design7.html) - COMPLETED:
+- .story-intro-container: Added white bg, padding, 2px border, shadow
+- .story-text-content: Added #fafafa bg, padding, border
+- .story-image-feature: Changed to 3px gold border, stronger shadow
+- .feature-card: Changed to 3px gold border, border-radius, stronger shadow
+- .member-card: Changed to 3px gold border, border-radius, stronger shadow, hover transform
+
+REMAINING TO FIX (Design 2, 3, 4, 6):
+Same pattern - add borders (2-3px), shadows (0 6px 20px), backgrounds, padding to all content sections and cards
