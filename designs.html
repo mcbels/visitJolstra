@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Jølster - Design Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a5f4f 0%, #2c6e49 100%);
+            color: #fff;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
+
+        .info {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 1rem;
+        }
+
+        .designs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .design-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 3px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .design-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.4);
+            border-color: #d4af37;
+        }
+
+        .design-preview {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .design-preview iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            pointer-events: none;
+        }
+
+        .design-info {
+            padding: 2rem;
+            color: #1a1a1a;
+        }
+
+        .design-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a5f4f;
+        }
+
+        .design-description {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .design-link {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #1a5f4f;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(26, 95, 79, 0.3);
+        }
+
+        .design-link:hover {
+            background: #145040;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(26, 95, 79, 0.4);
+        }
+
+        .main-site-link {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .main-site-link h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .main-site-link a {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: #d4af37;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
+            margin-top: 1rem;
+        }
+
+        .main-site-link a:hover {
+            background: #c9a961;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .designs-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .design-preview {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Visit Jølster</h1>
+            <p class="subtitle">Design Showcase</p>
+            <p class="info">Utforsk ulike designalternativer for nettsiden</p>
+        </header>
+
+        <div class="designs-grid">
+            <!-- Main Design (index.html) -->
+            <div class="design-card">
+                <div class="design-preview">
+                    <iframe src="index.html" title="Hovud design preview"></iframe>
+                </div>
+                <div class="design-info">
+                    <h3 class="design-title">Hovuddesign (Elegant & Moderne)</h3>
+                    <p class="design-description">
+                        Det offisielle designet med glassmorfisme-effekter, gull-aksenter, og moderne layout. 
+                        Fokuserer på eleganse og profesjonalitet.
+                    </p>
+                    <a href="index.html" class="design-link">Sjå fullstendig design →</a>
+                </div>
+            </div>
+
+            <!-- Design 1 -->
+            <div class="design-card">
+                <div class="design-preview">
+                    <iframe src="design1.html" title="Design 1 preview"></iframe>
+                </div>
+                <div class="design-info">
+                    <h3 class="design-title">Design 1 (Minimalistisk)</h3>
+                    <p class="design-description">
+                        Rent og minimalistisk design med fokus på innhald og lesbarhet. 
+                        Moderne sans-serif typografi og rolige farger.
+                    </p>
+                    <a href="design1.html" class="design-link">Sjå fullstendig design →</a>
+                </div>
+            </div>
+
+            <!-- Design 2 -->
+            <div class="design-card">
+                <div class="design-preview">
+                    <iframe src="design2.html" title="Design 2 preview"></iframe>
+                </div>
+                <div class="design-info">
+                    <h3 class="design-title">Design 2 (Bold & Dynamisk)</h3>
+                    <p class="design-description">
+                        Energisk design med sterke kontraster og masonry-grid layout. 
+                        Perfekt for å framheve visuelt innhald.
+                    </p>
+                    <a href="design2.html" class="design-link">Sjå fullstendig design →</a>
+                </div>
+            </div>
+
+            <!-- Design 3 -->
+            <div class="design-card">
+                <div class="design-preview">
+                    <iframe src="design3.html" title="Design 3 preview"></iframe>
+                </div>
+                <div class="design-info">
+                    <h3 class="design-title">Design 3</h3>
+                    <p class="design-description">
+                        Alternativ designvariant med unik tilnærming til presentasjon av innhald.
+                    </p>
+                    <a href="design3.html" class="design-link">Sjå fullstendig design →</a>
+                </div>
+            </div>
+
+            <!-- Design 4 -->
+            <div class="design-card">
+                <div class="design-preview">
+                    <iframe src="design4.html" title="Design 4 preview"></iframe>
+                </div>
+                <div class="design-info">
+                    <h3 class="design-title">Design 4</h3>
+                    <p class="design-description">
+                        Ytterligere designvariant med unik stil og layout-tilnærming.
+                    </p>
+                    <a href="design4.html" class="design-link">Sjå fullstendig design →</a>
+                </div>
+            </div>
+
+            <!-- Design 6 -->
+            <div class="design-card">
+                <div class="design-preview">
+                    <iframe src="design6.html" title="Design 6 preview"></iframe>
+                </div>
+                <div class="design-info">
+                    <h3 class="design-title">Design 6</h3>
+                    <p class="design-description">
+                        Siste designvariant med alternativ tilnærming.
+                    </p>
+                    <a href="design6.html" class="design-link">Sjå fullstendig design →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-site-link">
+            <h2>Hovudside</h2>
+            <p>Besøk den offisielle nettsiden med det valgte designet</p>
+            <a href="index.html">Gå til Visit Jølster →</a>
+        </div>
+    </div>
+</body>
+</html>
